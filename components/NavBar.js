@@ -5,7 +5,8 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 export default function NavBar() {
   const [navIsOpen, setNavIsOpen] = useState(false);
 
-  const toggleNav = () => {
+  const toggleNav = (e) => {
+    e.stopPropagation();
     setNavIsOpen(!navIsOpen);
   };
 
@@ -41,6 +42,7 @@ export default function NavBar() {
         {/* mobile menu  */}
 
         <div
+          onClick={toggleNav}
           className={
             navIsOpen
               ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
