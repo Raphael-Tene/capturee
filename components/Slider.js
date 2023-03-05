@@ -19,9 +19,9 @@ export default function Slider({ images }) {
   }
 
   return (
-    <div id='gallery'>
-      <h1>Gallery</h1>
-      <div>
+    <div id='gallery' className=' max-w-[1240px] mx-auto'>
+      <h1 className=' text-2xl font-bold text-center'>Gallery</h1>
+      <div className=' relative flex justify-center p-4'>
         {SliderData.map((slide, index) => {
           return (
             <div
@@ -32,21 +32,23 @@ export default function Slider({ images }) {
                   : 'opacity-0'
               }>
               <FaArrowCircleLeft
-                size={50}
-                className='absolute top-[50%] left-[30px] text-white/70 cursor-pointer select-none z-[2]'
+                onClick={prevSlide}
+                size={30}
+                className='absolute top-[50%] left-[30px] text-inherit cursor-pointer select-none z-[2]'
               />
               {index === current && (
                 <Image
                   className=' object-cover'
                   src={slide.image}
-                  width={500}
+                  width={300}
                   height={400}
                   alt='images'
                 />
               )}
               <FaArrowCircleRight
-                size={50}
-                className='absolute top-[50%] right-[30px] text-white/70 cursor-pointer select-none z-[2]'
+                onClick={nextSlide}
+                size={30}
+                className='absolute top-[50%] right-[30px] text-inherit cursor-pointer select-none z-[2]'
               />
             </div>
           );
